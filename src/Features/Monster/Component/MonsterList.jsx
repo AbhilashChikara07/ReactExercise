@@ -1,9 +1,12 @@
 import React from "react";
 import "../StyleCss/MonsterListStyle.css";
+import MonsterListItemComponent from "./MonsterListItem.Component";
+import MosterSearchItemComponent from "./MonsterSearchItem.Component";
 
 class MonsterListComponent extends React.Component {
     state = {
         usersAray: [],
+        searchText: "",
     };
 
     componentDidMount() {
@@ -12,29 +15,24 @@ class MonsterListComponent extends React.Component {
             .then((data) => this.setState({ usersAray: data }));
     }
 
+
+    onSearchChange = (event) => {
+        const searchText = event.target.value.toLowerCase();
+        this.setState({ searchText });
+    };
+
     render() {
+        const { usersAray, searchText } = this.state;
+        const filteredUsers = usersAray.filter((user) =>
+            user.username.toLowerCase().includes(searchText)
+        );
         return (
             <>
                 {/* SearchBox */}
-                <div className="searchWrapper">
-                    <div className="searchBoxContainer">
-                        <input
-                            type="text"
-                            placeholder="Search monsters..."
-                            className="searchBoxInput"
-                        />
-                        <span className="searchIcon">🔍</span>
-                    </div>
-                </div>
+                <MosterSearchItemComponent onSearchChange={this.onSearchChange} />
 
                 {/* MonsterList */}
-                <div className="monsterListConatainerStyle">
-                    {this.state.usersAray.map((user) => (
-                        <div key={user.id} className="monsterCard">
-                            <h1 className="monsterCardText">{user.username}</h1>
-                        </div>
-                    ))}
-                </div>
+                <MonsterListItemComponent usersAray={filteredUsers} />
             </>
         );
     }

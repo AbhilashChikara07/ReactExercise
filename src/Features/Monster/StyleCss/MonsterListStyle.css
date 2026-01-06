@@ -52,13 +52,13 @@
 
 
 /* ================= MONSTER LIST STYLES ================= */
-.monsterListWrapper {
+/* .monsterListWrapper {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-start;
     margin-bottom: 20px;
-}
+} */
 
 .monsterListConatainerStyle {
     display: flex;
