@@ -55,7 +55,7 @@ import MosterSearchItemComponent from "./MonsterSearchItem.Component.jsx";
 
 
 
-const MonsterListComponent = ({ usersAray, searchText, onSearchChange }) => {
+const MonsterList = ({ usersAray, searchText, onSearchChange }) => {
     console.log({ usersAray, searchText, onSearchChange })
     const filteredUsers = usersAray.filter((user) =>
         user.username.toLowerCase().includes(searchText)
@@ -76,4 +76,4 @@ const MonsterListComponent = ({ usersAray, searchText, onSearchChange }) => {
     );
 };
 
-export default MonsterListComponent;
+export default MonsterList;

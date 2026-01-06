@@ -1,5 +1,5 @@
 import React from "react";
-import MonsterListComponent from "./Component/MonsterList.jsx";
+import MonsterList from "./Component/MonsterList.Component.jsx";
 
 class MonsterPageClass extends React.Component {
 
@@ -22,7 +22,7 @@ class MonsterPageClass extends React.Component {
     render() {
         return (
             <div>
-                <MonsterListComponent usersAray={this.state.usersAray} searchText={this.state.searchText} onSearchChange={this.onSearchChange} />
+                <MonsterList usersAray={this.state.usersAray} searchText={this.state.searchText} onSearchChange={this.onSearchChange} />
             </div>
         );
     }
