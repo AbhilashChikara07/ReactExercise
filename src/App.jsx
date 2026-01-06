@@ -1,10 +1,10 @@
 import "./res/color.css";
-import MonsterListComponent from "./Features/Monster/Component/MonsterList";
+import MonsterPageClass from "./Features/Monster/MonsterPageClass.jsx";
 
 function App() {
   return (
     <>
-      <MonsterListComponent />
+      <MonsterPageClass />
     </>
   )
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import "./StyleCss/MonsterListStyle.css";
+
 
 /*{ Class Base Component }*/
 
