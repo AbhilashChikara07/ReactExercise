@@ -1,29 +1,39 @@
 import React from "react";
 import MonsterList from "./Component/MonsterList.Component.jsx";
+import { MonsterRepository } from "../../data/repository/monsterRepository";
 
 class MonsterPageClass extends React.Component {
-
     state = {
         usersAray: [],
         searchText: "",
     };
 
     componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then((response) => response.json())
-            .then((data) => this.setState({ usersAray: data }));
+        this.loadMonsters();
     }
 
+    loadMonsters = async () => {
+        try {
+            const data = await MonsterRepository.getMonsters();
+            this.setState({ usersAray: data });
+        } catch (error) {
+            console.error("Failed to load monsters", error);
+        }
+    };
+
     onSearchChange = (event) => {
-        const searchText = event.target.value.toLowerCase();
-        this.setState({ searchText });
+        this.setState({ searchText: event.target.value.toLowerCase() });
     };
 
     render() {
+        const { usersAray, searchText } = this.state;
+
         return (
-            <div>
-                <MonsterList usersAray={this.state.usersAray} searchText={this.state.searchText} onSearchChange={this.onSearchChange} />
-            </div>
+            <MonsterList
+                usersAray={usersAray}
+                searchText={searchText}
+                onSearchChange={this.onSearchChange}
+            />
         );
     }
 }
