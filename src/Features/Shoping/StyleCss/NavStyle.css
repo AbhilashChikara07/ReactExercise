@@ -1,0 +1,58 @@
+.navbar {
+    height: 70px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    /* FIX */
+    align-items: center;
+    background-color: var(--white);
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+/* Wrapper for links */
+.navbar-links {
+    display: flex;
+    gap: 25px;
+}
+
+/* Remove underline + fix color */
+.navbar a {
+    text-decoration: none;
+    color: var(--grey-800);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* Hover effect */
+.navbar a:hover {
+    color: var(--grey-400);
+}
+
+.navbar-logo {
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navbar-logo:hover {
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--grey-400);
+}
+
+.nav-item {
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--grey-800);
+    text-transform: uppercase;
+}
+
+.nav-item:hover {
+    color: var(--grey-400);
+}
