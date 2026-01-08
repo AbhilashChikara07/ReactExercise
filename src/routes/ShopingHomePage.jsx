@@ -1,7 +1,8 @@
 import React from "react";
-import "./StyleCss/ShopingStyle.css";
-import ShoepingItem from "./Components/ShopingItem.jsx";
-import Navbar from "./Components/Navbar.jsx";
+
+import ShoepingItem from "../Features/ShopingHome/Components/ShopingItem.jsx";
+import "../Features/ShopingHome/StyleCss/ShopingStyle.css";
+
 
 class ShopingPage extends React.Component {
     constructor(props) {

@@ -1,6 +1,7 @@
 import React from "react";
 import "../StyleCss/ShopingStyle.css";
-import AppNetworkImage from "../../Monster/Component/AppNetworkImage.jsx";
+import AppNetworkImage from "../../../utils/AppNetworkImage.jsx";
+
 
 const ShoepingItem = ({ categories }) => {
     return (

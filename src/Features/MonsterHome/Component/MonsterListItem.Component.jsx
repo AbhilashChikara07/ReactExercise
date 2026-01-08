@@ -1,6 +1,8 @@
 import React from "react";
+
 import "./StyleCss/MonsterListStyle.css";
-import AppNetworkImage from "./AppNetworkImage.jsx";
+import AppNetworkImage from "../../../utils/AppNetworkImage";
+
 
 
 /*{ Class Base Component }*/
