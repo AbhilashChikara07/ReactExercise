@@ -3,11 +3,12 @@ import { Routes, Route } from "react-router-dom";
 
 import "./res/color.css";
 
-import Navbar from "./Features/ShopingHome/Components/Navbar.jsx";  
-import ShopPage from "./Features/ShopingHome/ShopPage.jsx";
-import MonsterHomePageClass from "./routes/MonsterHomePage.jsx";
+import Navbar from "./features/ShopingHome/Components/Navbar.jsx";
+import ShopPage from "./features/ShopingHome/ShopPage.jsx";
 import ShopingHomePage from "./routes/ShopingHomePage.jsx";
-import ContactUsPage from "./Features/ShopingHome/ContactUsPage.jsx";
+import MonsterHomePageClass from "./features/MonsterHome/MonsterHomePage.jsx";
+import SignIn from "./features/LoginSignup/SignInPage.jsx";
+
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         <Route path="/" element={<ShopingHomePage />} />
         <Route path="/monster" element={<MonsterHomePageClass />} />
         <Route path="/shop" element={<ShopPage />} />
-        <Route path="/contact" element={<ContactUsPage />} />
+        <Route path="/sign-in" element={<SignIn />} />
       </Routes>
     </>
   );

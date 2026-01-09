@@ -1,16 +1,13 @@
-/*
- * Created by CHIKARA on 23/12/25
- */
+// src/components/AppNetworkImage.jsx
 
 import React, { useState } from "react";
 import "./StyleCss/AppNetworkImage.css";
 
-
 function AppNetworkImage({
     imageUrl,
-    width = "100%",
-    height = "100%",
-    borderRadius = 8,
+    width,
+    height,
+    borderRadius,
     fit = "cover", // cover | fill | contain
     placeholder,
     errorWidget,
@@ -21,7 +18,13 @@ function AppNetworkImage({
     return (
         <div
             className="app-image-wrapper"
-            style={{ width, height, borderRadius }}
+            style={{
+                width: width,
+                height: height,
+                borderRadius: borderRadius,
+                "--image-width": width, // Set CSS custom property for width
+                "--image-height": height, // Set CSS custom property for height
+            }}
         >
             {!hasError && (
                 <img

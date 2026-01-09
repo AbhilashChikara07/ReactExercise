@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./StyleCss/MonsterListStyle.css";
-import AppNetworkImage from "../../../utils/AppNetworkImage";
+import AppNetworkImage from "./features/MonsterHome/Component/AppNetworkImage.jsx";
 
 
 

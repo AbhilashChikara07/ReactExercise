@@ -16,12 +16,15 @@ const ShoepingItem = ({ categories }) => {
                         }}
                     />
                     <div className="shoping-item-body">
+
                         <AppNetworkImage
                             width="100%"
                             height="100%"
                             imageUrl={`${imageUrl}`}
                             fit="cover"
                             borderRadius={4}
+                            placeholder={<div className="placeholder">Loading...</div>} // Custom placeholder
+                            errorWidget={<div className="error">Failed to load image</div>}
                         />
                         <h2 className="ShopingItemTextStyle">{capitalizeFirst(title)}</h2>
                         <h2 className="ShopingItemButtonStyle">Shop Now</h2>

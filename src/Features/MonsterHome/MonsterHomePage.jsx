@@ -1,7 +1,7 @@
 import React from "react";
 
-import {MonsterRepository} from "../data/repository/MonsterRepository.js";
-import MonsterList from "../Features/MonsterHome/Component/MonsterList.Component.jsx";
+import { MonsterRepository } from "../../data/repository/MonsterRepository.js";
+import MonsterList from "./Component/MonsterList.Component.jsx";
 
 
 class MonsterPageClass extends React.Component {

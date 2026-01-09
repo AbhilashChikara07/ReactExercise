@@ -1,0 +1,79 @@
+.auth-card {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.container {
+    width: 200px;
+    height: 1000px;
+    background-color: #000;
+}
+
+
+/* RIGHT FORM */
+.auth-form {
+    width: 500px;
+    height: 1000px;
+    padding: 60px 80px;
+}
+
+.auth-form h1 {
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.sub-text span {
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 25px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #aaa;
+}
+
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.google-btn img {
+    width: 20px;
+}
