@@ -25,12 +25,15 @@
     text-decoration: none;
     color: var(--grey-800);
     font-size: 14px;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
 /* Hover effect */
 .navbar a:hover {
-    color: var(--grey-400);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--grey-600);
 }
 
 .navbar-logo {

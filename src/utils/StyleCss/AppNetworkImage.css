@@ -6,21 +6,41 @@
 
 .app-image-wrapper {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    max-height: 215px;
+    min-height: 215px;
+    height: 100px;
     overflow: hidden;
     background-color: var(--grey-100);
     border-radius: inherit;
 }
 
-/* Actual image */
 .app-network-image {
+    width: 100%;
+    height: 215px;
+    display: block;
+    object-fit: cover;
+}
+
+
+.app-image-wrapper img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.app-image-wrapper:hover img {
+    transform: scale(1.08);
+}
+
+/* Actual image */
+/* .app-network-image {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
-    /* overridden via inline style if needed */
-}
+} */
 
 /* Placeholder (loading & error) */
 .app-image-placeholder {

@@ -1,6 +1,7 @@
 import React from "react";
 import "../StyleCss/ShopingStyle.css";
 import AppNetworkImage from "../../../utils/AppNetworkImage.jsx";
+import { capitalizeFirst } from "../../../utils/StringUtils.jsx";
 
 
 const ShoepingItem = ({ categories }) => {
@@ -16,11 +17,13 @@ const ShoepingItem = ({ categories }) => {
                     />
                     <div className="shoping-item-body">
                         <AppNetworkImage
+                            width="100%"
+                            height="100%"
                             imageUrl={`${imageUrl}`}
                             fit="cover"
                             borderRadius={4}
                         />
-                        <h2 className="ShopingItemTextStyle">{title}</h2>
+                        <h2 className="ShopingItemTextStyle">{capitalizeFirst(title)}</h2>
                         <h2 className="ShopingItemButtonStyle">Shop Now</h2>
                     </div>
                 </div>
