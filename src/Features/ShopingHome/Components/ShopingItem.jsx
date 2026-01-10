@@ -1,6 +1,6 @@
 import React from "react";
 import "../StyleCss/ShopingStyle.css";
-import AppNetworkImage from "../../../utils/AppNetworkImage.jsx";
+import AppNetworkImage from "../../MonsterHome/Component/AppNetworkImage.jsx";
 import { capitalizeFirst } from "../../../utils/StringUtils.jsx";
 
 

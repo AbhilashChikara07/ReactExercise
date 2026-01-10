@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./StyleCss/MonsterListStyle.css";
-import AppNetworkImage from "./features/MonsterHome/Component/AppNetworkImage.jsx";
+import AppNetworkImage from "./AppNetworkImage.jsx";
 
 
 
@@ -33,8 +33,9 @@ function MonsterListItemComponent(props) {
             {usersAray.map((user) => (
                 <div key={user.id} className="monsterCard">
                     <div className="monsterImageWrapper">
-                        <AppNetworkImage
+                        <AppNetworkImage className="imageDivStyle"
                             imageUrl={`https://robohash.org/${user.id}?set=set2&size=180x180`}
+                            width={230}
                             fit="cover"
                         />
                         <h1 className="monsterCardText">
