@@ -1,63 +1,73 @@
-import React from 'react';
+import React from "react";
 import "../../features/LoginSignup/Component/StyleCss/LoginSignup.Style.css";
-import AssetsConstant from '../../constant/AssetsConstant';
+import ImageComponent from "../../features/LoginSignup/Component/ImageComponent";
+import Button from "../../features/LoginSignup/Component/Button.Component.jsx";
+import Strings from "../../res/String.jsx";
+import { signInUser } from "../../firebase/auth.js";
 
-class SignIn extends React.Component {
-    handleGoogleLogin = () => {
-        console.log('Google Login Clicked');
+const SignIn = () => {
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [error, setError] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+
+    const handleSignUp = async () => {
+        setError("");
+        setLoading(true);
+        try {
+            await signInUser(email, password);
+            alert("Login successful");
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    render() {
-        return (
-            <div className="auth-card">
-                {/* LEFT IMAGE SECTION */}
-                {/* <img className="container"
-                    src={AssetsConstant.LoginBanner} // Use the constant here
-                    alt="Auth Visual"
-                /> */}
+    return (
+        <div className="main-container">
+            <div className="auth-container">
+                <ImageComponent />
 
-                {/* <img
-                    src="https://picsum.photos/2000/500"
-                    alt="Auth Visual"
-                />
-                <AppNetworkImage
-                    imageUrl={"https://picsum.photos/1000/500"}
-                    fit='fill'
-                /> */}
+                <div className="auth-form">
+                    <h2>{Strings.WELCOME_BACK}</h2>
+                    <p className="subtitle">{Strings.LOGIN_SUBTITLE}</p>
 
+                    <input
+                        type="email"
+                        placeholder={Strings.EMAIL_PLACEHOLDER}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                {/* RIGHT FORM SECTION */}
-                {/* <div className="auth-form">
-                    <h1>Create an Account</h1>
-                    <p className="sub-text">
-                        Already have an account? <span>Log in</span>
-                    </p>
+                    <input
+                        type="password"
+                        placeholder={Strings.PASSWORD_PLACEHOLDER}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
 
-                    <input type="text" placeholder="First Name" />
-                    <input type="text" placeholder="Last Name" />
-                    <input type="email" placeholder="Email Address" />
-                    <input type="password" placeholder="Password" />
+                    <Button
+                        label={Strings.LOGIN}
+                        onClick={handleSignUp}
+                        disabled={loading}
+                    />
 
-                    <button className="primary-btn">
-                        Create Account
-                    </button>
+                    <Button label={Strings.SIGN_UP} />
 
-                    <div className="divider">or</div>
+                    <div className="divider">{Strings.OR}</div>
 
-                    <button
-                        className="google-btn"
-                        onClick={this.handleGoogleLogin}
-                    >
+                    <button className="google-btn">
                         <img
                             src="https://www.svgrepo.com/show/475656/google-color.svg"
                             alt="Google"
                         />
-                        Continue with Google
+                        {Strings.CONTINUE_WITH_GOOGLE}
                     </button>
-                </div> */}
+
+                    {error && <p className="error-text">{error}</p>}
+                </div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default SignIn;

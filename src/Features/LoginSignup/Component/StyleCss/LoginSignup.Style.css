@@ -1,79 +1,145 @@
-.auth-card {
+.main-container {
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: center;
-    background: white;
-    border-radius: 24px;
-    overflow: hidden;
 }
 
-.container {
-    width: 200px;
-    height: 1000px;
-    background-color: #000;
+.auth-container {
+    display: flex;
+    margin: 16px;
+    max-width: 1500px;
+    max-height: 1000px;
+    border: 1px solid var(--border-light);
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 10px 15px rgba(0, 0, 0, 0.08);
 }
 
 
-/* RIGHT FORM */
+.auth-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= RIGHT FORM ================= */
 .auth-form {
-    width: 500px;
-    height: 1000px;
-    padding: 60px 80px;
+    flex: 1;
+    background: var(--white);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.auth-form h1 {
-    margin-bottom: 10px;
+.auth-form h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    color: var(--text-primary);
 }
 
-.sub-text {
-    font-size: 14px;
-    margin-bottom: 30px;
+.subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
 }
 
-.sub-text span {
-    color: #000;
-    font-weight: 600;
-    cursor: pointer;
-}
-
+/* ================= INPUTS ================= */
 .auth-form input {
-    width: 100%;
-    padding: 14px;
+    padding: 12px;
     margin-bottom: 15px;
-    border-radius: 25px;
-    border: 1px solid #ddd;
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--white);
 }
 
+.auth-form input::placeholder {
+    color: var(--text-disabled);
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* ================= BUTTONS ================= */
 .primary-btn {
-    width: 100%;
-    padding: 14px;
-    border-radius: 25px;
-    background: black;
-    color: white;
+    background: var(--primary);
+    color: var(--text-white);
     border: none;
+    padding: 12px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-top: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    transition: background 0.2s ease;
 }
 
+.primary-btn:hover {
+    background: var(--primary-dark);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+    background: var(--primary-light);
+}
+
+/* ================= DIVIDER ================= */
 .divider {
     text-align: center;
     margin: 20px 0;
-    color: #aaa;
+    color: var(--text-disabled);
 }
 
+/* ================= GOOGLE BUTTON ================= */
 .google-btn {
-    width: 100%;
-    padding: 12px;
-    border-radius: 25px;
-    border: 1px solid #ddd;
-    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    border: 1px solid var(--border-light);
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--white);
     cursor: pointer;
+    color: var(--text-primary);
+    transition: background 0.2s ease;
+}
+
+.google-btn:hover {
+    background: var(--white-ice);
 }
 
 .google-btn img {
     width: 20px;
+}
+
+/* ================= ERROR ================= */
+.error-text {
+    color: var(--error);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+    }
+
+    .auth-image {
+        height: 200px;
+    }
 }
