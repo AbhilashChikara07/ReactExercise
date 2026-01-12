@@ -3,40 +3,37 @@ import "../../features/LoginSignup/Component/StyleCss/LoginSignup.Style.css";
 import ImageComponent from "../../features/LoginSignup/Component/ImageComponent";
 import Button from "../../features/LoginSignup/Component/Button.Component.jsx";
 import Strings from "../../res/String.jsx";
+import { signUpUser, signInWithGoogle } from "../../firebase/auth.js";
 import { useNavigate } from "react-router-dom";
-import { AuthRepository } from "../../data/repository/authRepository";
-
-import {
-    signInUser,
-    signUpUser,
-    signInWithGoogle
-} from "../../firebase/auth.js";
 
 
-
-const SignIn = () => {
+const SignupPage = () => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [confirmPassword, setConfirmPassword] = React.useState("");
     const [error, setError] = React.useState("");
     const [loading, setLoading] = React.useState(false);
 
     const navigate = useNavigate();
 
-    // LOGIN
-    const handleLogin = async () => {
-        if (!email || !password) {
-            setError("Email and password are required");
+
+    // SIGN UP
+    const handleSignUp = async () => {
+        if (!email || !password || !confirmPassword) {
+            setError("All fields are required");
             return;
         }
 
-        setLoading(true);
-        setError("");
+        if (password !== confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
 
+        setError("");
+        setLoading(true);
         try {
-            const user = await AuthRepository.login(email, password);
-            console.log("Logged in user:", user);
-            alert("Login successful");
-            navigate("/shop");
+            await signUpUser(email, password);
+            alert("Account created successfully");
         } catch (err) {
             setError(err.message);
         } finally {
@@ -44,14 +41,13 @@ const SignIn = () => {
         }
     };
 
-    // GOOGLE LOGIN
-    const handleGoogleLogin = async () => {
+    // GOOGLE SIGN UP
+    const handleGoogleSignUp = async () => {
         setError("");
         setLoading(true);
         try {
-            var value = await signInWithGoogle();
-            console.log("Google Login Value:", value);
-            alert("Google login successful");
+            await signInWithGoogle();
+            alert("Signed up with Google successfully");
         } catch (err) {
             setError(err.message);
         } finally {
@@ -67,8 +63,8 @@ const SignIn = () => {
 
                 {/* RIGHT FORM */}
                 <div className="auth-form">
-                    <h2>{Strings.WELCOME_BACK}</h2>
-                    <p className="subtitle">{Strings.LOGIN_SUBTITLE}</p>
+                    <h2>{Strings.SIGN_UP}</h2>
+                    <p className="subtitle">Create your account</p>
 
                     {error && <p className="error-text">{error}</p>}
 
@@ -86,26 +82,33 @@ const SignIn = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
 
-                    {/* LOGIN */}
+                    <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+
+                    {/* SIGN UP BUTTON */}
                     <Button
-                        label={Strings.LOGIN}
-                        onClick={handleLogin}
+                        label={Strings.SIGN_UP}
+                        onClick={handleSignUp}
                         disabled={loading}
                     />
 
-                    {/* SIGN UP */}
                     <Button
-                        label={Strings.SIGN_UP}
-                        onClick={() => navigate("/sign-up")}
+                        label={Strings.LOGIN}
+                        onClick={() => navigate("/sign-in")}
                         disabled={loading}
                     />
+
 
                     <div className="divider">{Strings.OR}</div>
 
-                    {/* GOOGLE */}
+                    {/* GOOGLE SIGN UP */}
                     <button
                         className="google-btn"
-                        onClick={handleGoogleLogin}
+                        onClick={handleGoogleSignUp}
                         disabled={loading}
                     >
                         <img
@@ -120,4 +123,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignupPage;

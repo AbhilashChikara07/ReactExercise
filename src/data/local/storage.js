@@ -1,5 +1,3 @@
-// src/data/local/storage.js
-
 export const Storage = {
     save: (key, value) => {
         localStorage.setItem(key, JSON.stringify(value));
