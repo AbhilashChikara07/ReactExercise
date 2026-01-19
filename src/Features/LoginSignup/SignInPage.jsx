@@ -5,6 +5,8 @@ import Button from "../../features/LoginSignup/Component/Button.Component.jsx";
 import Strings from "../../res/String.jsx";
 import { useNavigate } from "react-router-dom";
 import { AuthRepository } from "../../data/repository/authRepository";
+import { setUser } from "../../store/authSlice.js";
+import { useDispatch } from "react-redux";
 
 import {
     signInUser,
@@ -20,6 +22,7 @@ const SignIn = () => {
     const [error, setError] = React.useState("");
     const [loading, setLoading] = React.useState(false);
 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     // LOGIN
@@ -34,6 +37,7 @@ const SignIn = () => {
 
         try {
             const user = await AuthRepository.login(email, password);
+            dispatch(setUser(user));
             console.log("Logged in user:", user);
             alert("Login successful");
             navigate("/shop");

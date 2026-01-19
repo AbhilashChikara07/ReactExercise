@@ -2,6 +2,9 @@ import React from "react";
 
 import MonsterListItemComponent from "./MonsterListItem.Component.jsx";
 import MosterSearchItemComponent from "./MonsterSearchItem.Component.jsx";
+import { useSelector } from "react-redux";
+
+
 
 /*{ClassBase Component}*/
 // class MonsterListComponent extends React.Component {
@@ -57,6 +60,7 @@ import MosterSearchItemComponent from "./MonsterSearchItem.Component.jsx";
 
 const MonsterList = ({ usersAray, searchText, onSearchChange }) => {
     console.log({ usersAray, searchText, onSearchChange })
+    const user = useSelector((state) => state.auth.user);
     const filteredUsers = usersAray.filter((user) =>
         user.username.toLowerCase().includes(searchText)
     );
@@ -64,6 +68,9 @@ const MonsterList = ({ usersAray, searchText, onSearchChange }) => {
     return (
         <>
             {/* SearchBox */}
+
+
+            <h1>Welcome, {user ? user.email : "Guest"}!</h1>
 
             <MosterSearchItemComponent
                 onSearchChange={onSearchChange}
